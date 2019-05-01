@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TaulukonArvojenSumma
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] lukuja = new int[5]; // luodaan yksiulotteinen taulukko nimeltä lukuja, siinä olkoon 5 alkiota
+
+            int summa = 0;
+            int keskiarvo = 0; //esitellään muuttujat
+            int l = 1; //tämä muuttuja on kierroksia varten
+
+            for (int i = 0 ; i < lukuja.Length; i++) //toistetaan luuppia niin kauan, kuin i < lukuja taulukon alkioiden määrä
+            {                                        // jokaisella kierroksella lisätään i + 1
+                Console.Write("Anna luku " + l + ": ");
+                string s = Console.ReadLine();
+                lukuja[i] = Int32.Parse(s);
+                l++; //muuttuja l kasvaa aina yhden verran joka kierroksella, jotta kysyttävien lukujen numerointi on ok
+            }
+
+            for (int i = 0; i < lukuja.Length; i++) //lasketaan tässä toistolauseessa taulukkoon asetettujen arvojen summa
+            {
+                summa = summa + lukuja[i];
+                keskiarvo = summa / lukuja.Length;
+            }
+
+            Console.WriteLine("Summa = " + summa); // tulostetaan lukujen summa
+            Console.WriteLine("Keskiarvo = " + keskiarvo); // tulostetaan lukujen keskiarvo
+
+            Console.ReadLine();
+        }
+    }
+}
