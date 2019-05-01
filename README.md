@@ -1,6 +1,5 @@
 # Basics-of-Programming-C-
-Learning basics of C#
 
-School projects, basics of C#.
+School projects, learning basics of C#.
 
 August - September 2018
