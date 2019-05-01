@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace laivanupotus20
+{
+    class Program
+    {
+        static string s;
+        static int rivi, sarake;
+
+        static void Main(string[] args)
+        {
+            Boolean jatkuuko = true; //esitellään Boolean nimeltä jatkuuko ja sen arvoksi tosi
+            // ensimmäinen do-looppi jatkuu niin kauan, kunnes jatkuuko on epätosi=false (rivi 85)
+
+            int hudit = 0, osumat = 0;
+
+            int[,] taulukko = new int[5, 5]; // luodaan kaksiulotteinen taulukko 5x5            
+
+            do
+            {
+                pyydaArvot(taulukko); //pyydetään käyttäjältä arvot taulukkoon
+
+                int lkm = 0; //lkm lasketaan taulukon sisältämät ykköset
+
+                for (int i = 0; i < taulukko.GetLength(0); i++) //luetaan taulukosta ykkösten lukumäärä muuttujaan lkm
+                {
+                    for (int j = 0; j < taulukko.GetLength(1); j++)
+                    {
+                        if (taulukko[i, j] == 1)
+                        {
+                            lkm++;
+                        }
+                    }
+                }
+
+                do
+                {
+                    tulostaTaulukko(taulukko); //tulostetaan taulukko, jossa käyttäjän antamat arvot
+
+                    try
+                    {
+                        rivi = kysyLuku("Rivi? ");
+                        sarake = kysyLuku("Sarake? ");
+
+                        if (taulukko[rivi, sarake] == 0)
+                        {
+                            Console.WriteLine("Huti!");
+                            hudit = hudit +1; //ohjelma laskee hutien määrän
+                        }
+
+                        else if (taulukko[rivi, sarake] == 1)
+                        {
+                            Console.WriteLine("Osuma!");
+                            osumat = osumat + 1; //ohjelma laskee osumien määrän
+                            taulukko[rivi, sarake] = 0; //osuman jälkeen arvo muuttuu nollaksi
+                            if (lkm == osumat) //kun osumia on yhtä paljon kuin ykkösiä alunperin, lopetetaan ohjelma
+                            {
+                                break;
+                            }
+                        }
+                    }
+
+                    catch (Exception e) //jos käyttäjä syöttää taulukkoon kuulumattoman rivin/sarakkeen, ohjelma lopetetaan
+                    {
+                        Console.WriteLine("Game over - hyvin pelattu :-) ");
+                        break;
+                    }
+
+
+                } while (true);
+
+                Console.WriteLine("Osumien määrä: " + osumat);
+                Console.WriteLine("Hutien määrä: " + hudit);
+
+                Console.WriteLine("Pelataanko uudelleen k/e ? ");
+                string vastaus = Console.ReadLine();
+                char c = vastaus[0]; //poimitaan string muuttujan vastaus ensimmäinen merkki
+                if (c != 'k') //jos merkki ei ole k niin lopetetaan peli
+                {
+                    jatkuuko = false; //Boolean jatkuuko on nyt epätosi
+                }
+
+                osumat = 0; hudit = 0; //nollataan osumien ja hutien määrät
+
+
+            } while (jatkuuko); //alun do (-while) loppu
+
+            Console.ReadLine();
+
+        }
+
+
+
+        private static int kysyLuku(string v)
+        {
+            Console.Write(v);
+            s = Console.ReadLine(); //käyttäjä antaa s:lle arvoksi jonkin merkkijonon
+            return Int32.Parse(s); //merkkijono parsitaan kokonaisluvuksi ja ko. luku palautetaan ylös muuttujan arvoksi
+        }
+
+        private static void tulostaTaulukko(int[,] taulukko)
+        {
+            for (int i = 0; i < taulukko.GetLength(0); i++)//GetLength(0) - rivien lukumäärä
+            {
+                for (int j = 0; j < taulukko.GetLength(1); j++)//GetLength(1) - rivillä olevien sarakkeiden lukumäärä
+                {
+                    Console.Write(taulukko[i, j] + " "); //Tulostetaan taulukon solun arvot peräkkäin samalle riville + välilyönti
+                }
+                Console.WriteLine();//Rivien tulostuksen jälkeen tulostetaan rivinvaihto, jotta seuraava rivi tulostuisi seuraavalle riville
+
+            }
+        }
+
+        private static void pyydaArvot(int[,] taulukko)
+        {
+            for (rivi = 0; rivi < taulukko.GetLength(0); rivi++) //ensimmäinen rivi on 0, joka kierroksella +1
+            {
+                for (sarake = 0; sarake < taulukko.GetLength(1); sarake++) //sarakkeet alkaa 0:sta myös
+                {
+                    Console.Write("Anna arvo 0-1: ");
+                    s = Console.ReadLine();
+                    int arvo = Int32.Parse(s);
+                    taulukko[rivi, sarake] = arvo; //sijoitetaan käyttäjän antama arvo taulukon soluun
+                }
+            }
+        }
+    }
+}
