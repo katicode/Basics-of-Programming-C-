@@ -21,7 +21,7 @@ namespace TerveKati
             Console.Write("Terve ");
             Console.WriteLine(nimi);//Tulostaa muuttujan nimi arvon ja rivinvaihdon (WriteLine)
 
-            //Vielä yksi ReadLine, jotta ikkuna ei sulkeudu heti. Jos teit .Net Framework konsoliohjelman, ei tätä riviä tarvita
+            //Vielä yksi ReadLine, jotta ikkuna ei sulkeudu heti. Jos .Net Framework konsoliohjelman ei tätä riviä tarvita
             Console.ReadLine();
         }
     }
