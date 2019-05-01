@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TerveKati
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Tulostetaan kysymys
+            Console.Write("Kuka olet? ");//Tulostaa lainausmerkkien sisällä olevan tekstin
+
+            //Luetaan vastaus muuttujaan nimi
+            String nimi = Console.ReadLine(); //Tässä ohjelma odottaa, että kirjoitat jotain, tai ainakin painat enter
+            // String: varataan tila merkkijonolle, johon viitataan nimellä nimi (voi olla myös esim x)
+
+            //Tulostetaan annettu teksti
+            Console.Write("Terve ");
+            Console.WriteLine(nimi);//Tulostaa muuttujan nimi arvon ja rivinvaihdon (WriteLine)
+
+            //Vielä yksi ReadLine, jotta ikkuna ei sulkeudu heti. Jos teit .Net Framework konsoliohjelman, ei tätä riviä tarvita
+            Console.ReadLine();
+        }
+    }
+}
