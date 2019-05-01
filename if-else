@@ -1,0 +1,57 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Kala3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Kalan paino? "); //tulostetaan kysymys
+            string pai = Console.ReadLine(); //käyttäjä kirjoittaa vastauksen, tämä asetetaan string muuttujaksi "pai"
+            int paino = Int32.Parse(pai); // "pai" muutetaan kokonaisluvuksi, int muuttujaksi nimeltä "paino"
+
+            Console.Write("Kalan pituus? ");
+            string pit = Console.ReadLine();
+            int pituus = Int32.Parse(pit);
+
+            for (;paino > 0 && pituus > 0;) //luuppia jatketaan niin kauan kun ehto paino>0 & pituus>0 toteutuu
+            {
+                if (pituus > 100 && paino > 8)
+                {
+                    Console.WriteLine("Kala on iso, pitkä ja painava.");
+                }
+
+                else if (pituus > 100)
+                {
+                    Console.WriteLine("Kala on pitkä ja kevyt.");
+                }
+
+                else if (paino > 8)
+                {
+                    Console.WriteLine("Kala on lyhyt ja painava.");
+                }
+
+                else
+                {
+                    Console.WriteLine("Kala on pieni.");
+                }
+
+                Console.Write("Kalan paino? "); //kysytään ja annetaan uudet arvot painolle ja pituudelle
+                pai = Console.ReadLine(); //näiden perusteella ohjelma päättää jatketaanko luuppia vai ei 
+                paino = Int32.Parse(pai); 
+
+                Console.Write("Kalan pituus? ");
+                pit = Console.ReadLine();
+                pituus = Int32.Parse(pit);
+            }
+
+            
+
+            Console.ReadLine();
+        }
+    }
+}
