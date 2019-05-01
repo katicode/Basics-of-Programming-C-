@@ -1,0 +1,73 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Tulostin
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //alustetaan muuttujat nimeltä: luku1, luku2 sekä tulo, erotus, summa ja jako
+
+            double luku1; //alustetaan numeeriset muuttujat nimeltä luku1 ja luku2 sekä annetaan niille arvot
+            luku1 = 7;
+            double luku2;
+            luku2 = 2;
+
+            double tulo; //KERTOLASKU: alustetaan muuttuja nimeltä tulo
+            tulo = luku1 * luku2; //annetaan muuttujalle tulo arvoksi luku1 * luku2
+
+            double erotus; //VÄHENNYSLASKU: alustetaan muuttuja nimeltä erotus
+            erotus = luku1 - luku2; //annetaan muuttujan arvoksi luku1 - luku2
+
+            double summa; //YHTEENLASKU: alustetaan muuttuja nimeltä summa
+            summa = luku1 + luku2; //annetaan muuttujan arvoksi luku1 + luku2
+
+            double jako; //JAKOLASKU: alustetaan muuttuja nimeltä jako
+            jako = luku1 / luku2; //annetaan muuttujan arvoksi luku1 / luku2
+
+
+            Console.ForegroundColor = ConsoleColor.Blue; //asetetaan sininen väri tulostettavalla tekstille
+            Console.WriteLine("Hei olen Tulostin-ohjelma"); //tulostaa lainausmerkkien sisällä olevan tekstin
+            Console.ResetColor(); //palautetaan takaisin fontin väri
+            String tekija = "Kati"; //luodaan muuttuja tekija ja asetetaan sen arvoksi Kati
+            Console.Write("Ohjelman tekijä: "); //tulostetaan lainausmerkkien sisällä oleva teksti
+            Console.WriteLine(tekija); //tulostetaan muuttujan tekija arvo
+
+            Console.Write("Luku1-muuttujan arvo on ");
+            Console.WriteLine(luku1); //tulostetaan muuttujan luku1 arvo
+            Console.Write("Luku2-muuttujan arvo on ");
+            Console.WriteLine(luku2); //tulostetaan muuttujan luku2 arvo
+
+
+            Console.Write(luku1); //tulostetaan muuttujan luku1 arvo
+            Console.Write(" * "); //tulostetaan kertomerkki
+            Console.Write(luku2); //tulostetaan muuttujan luku2 arvo
+            Console.Write(" = "); //tulostetaan yhteensä-merkki
+            System.Console.WriteLine(tulo); //tulostetaan muuttujan tulo arvo, joka siis määritelty luku1*luku2
+            
+            Console.Write(luku1); // tulostetaan muuttujan luku1 arvo
+            Console.Write(" - "); //tulostetaan miinusmerkki
+            Console.Write(luku2); //tulostetaan muuttujan luku2 arvo
+            Console.Write(" = "); //tulostetaan yhteensä-merkki
+            System.Console.WriteLine(erotus); //tulostetaan muuttujan erotus arvo, joka siis määritelty luku1-luku2
+
+            Console.Write(luku1); // tulostetaan muuttujan luku1 arvo
+            Console.Write(" + "); //tulostetaan plusmerkki
+            Console.Write(luku2); //tulostetaan muuttujan luku2 arvo
+            Console.Write(" = "); //tulostetaan yhteensä-merkki
+            System.Console.WriteLine(summa); //tulostetaan muuttujan summa arvo, joka siis määritelty luku1+luku2
+            
+            Console.Write(luku1); // tulostetaan muuttujan luku1 arvo
+            Console.Write(" / "); //tulostetaan jakomerkki
+            Console.Write(luku2); //tulostetaan muuttujan luku2 arvo
+            Console.Write(" = "); //tulostetaan yhteensä-merkki
+            System.Console.WriteLine(jako); //tulostetaan muuttujan jako arvo, joka siis määritelty luku1/luku2
+            
+            Console.ReadLine();
+        }
+    }
+}
