@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Nelilaskin
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Anna luku 1: "); //kysytään luku1
+            double operandi1 = Convert.ToDouble(Console.ReadLine()); //muutetaan liukuluvuksi
+
+            Console.Write("Anna operaattori: "); //kysytään operaattori (laskutoimitus)
+            string operaattori = Console.ReadLine();
+
+            Console.Write("Anna luku 2: "); //kysytään luku2
+            double operandi2 = Convert.ToDouble(Console.ReadLine());
+
+            // while luuppia toistetaan niin kauan kuin ehdot toteutuvat = operaattori +,-,* tai / merkki
+
+            while (operaattori == "+" || operaattori == "-" || operaattori == "*" || operaattori == "/")
+            {
+                double summa = operandi1 + operandi2; //esitellään muuttujat (int, kokonaisluku) ja annetaan niille arvot
+                double erotus = operandi1 - operandi2;
+                double tulo = operandi1 * operandi2;
+                double osamaara = operandi1 / operandi2;
+
+                if (operaattori=="+")
+                {
+                    Console.WriteLine("Summa= " + summa);
+                }
+
+                else if (operaattori == "-")
+                {
+                    Console.WriteLine("Erotus= " + erotus);
+                }
+
+                else if (operaattori == "*")
+                {
+                    Console.WriteLine("Tulo= " + tulo);
+                }
+
+                else if (operaattori == "/")
+                {
+                    Console.WriteLine("Osamäärä= " + osamaara);
+                }
+
+                Console.Write("Anna luku 1: "); //kysytään luku1
+                operandi1 = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Anna operaattori: "); //kysytään operaattori (laskutoimitus)
+                operaattori = Console.ReadLine();
+
+                Console.Write("Anna luku 2: "); //kysytään luku2
+                operandi2 = Convert.ToDouble(Console.ReadLine());
+
+
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Ohjelman loppu.");
+
+            Console.ReadLine();
+
+        }
+    }
+}
